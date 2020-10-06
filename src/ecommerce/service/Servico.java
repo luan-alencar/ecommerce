@@ -50,13 +50,5 @@ public class Servico {
 		System.out.println(s.getCompras()); // este metodo retorna um valor null, mas pq se inicializei
 		// no construtor da class Sessao ?
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
