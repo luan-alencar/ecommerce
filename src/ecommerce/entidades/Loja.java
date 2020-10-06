@@ -64,6 +64,15 @@ public class Loja {
 		return maisVendido;
 	}
 
+	public double getValorVendidoTotal() {
+		double total = 0.0;
+		for (Cliente c : clientes) {
+			total += c.getValorGastoTotal();
+		}
+
+		return total;
+	}
+
 	public int getQuantasUnidadesVendidas(Produto produto) {
 		int quantidade = 0;
 		// para cada cliente da loja
