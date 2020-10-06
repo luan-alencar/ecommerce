@@ -51,4 +51,35 @@ public class Loja {
 		return pro;
 	}
 
+	public Produto getProdutoMaisVendido() {
+		Produto maisVendido = produtos.get(0);
+		int maxVezesVendido = getQuantasUnidadesVendidas(maisVendido);
+		for (Produto p : produtos) {
+			int qtd = getQuantasUnidadesVendidas(p);
+			if (qtd > maxVezesVendido) {
+				maxVezesVendido = qtd;
+				maisVendido = p;
+			}
+		}
+		return maisVendido;
+	}
+
+	public int getQuantasUnidadesVendidas(Produto produto) {
+		int quantidade = 0;
+		// para cada cliente da loja
+		for (Cliente c : clientes) {
+			// eu devo olhar cada compra dele
+			for (Compra compra : c.getCompras()) {
+				// em cada compra eu olho os produtos
+				for (Produto p : compra.getProdutos()) {
+					// se o produto e igual ao p (parametro do metodo), eu conto
+					if (p.equals(produto)) {
+						quantidade++;
+					}
+				}
+			}
+		}
+		return quantidade;
+	}
+
 }
